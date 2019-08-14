@@ -3,8 +3,26 @@
     <head>
         <title>The Brain Game Lab</title>
         <link rel="stylesheet" type="text/css" href="css/thebraingamelab.css">
+        <script src="js/savegameplaydata.js"></script>
     </head>
     <body>
         <h1>The Brain Game Lab</h1>
+        <button>Send Test Trial Data Event</button>
     </body>
+    <script>
+        var btn = document.querySelector('button');
+        var tidx = 1;
+        btn.addEventListener('click', function(){
+            var user = 'userA';
+            var session = 'sessionB';
+            var game = 'gameC';
+            var trial = {
+                correct: Math.round(Math.random()) == 0,
+                rt: 100 + Math.random()*1000,
+                trial_index: tidx
+            }
+            saveGameplayData(user, game, session, trial);
+            tidx++;
+        });
+    </script>
 </html>
