@@ -11,7 +11,7 @@
     </body>
     <script>
         var btn = document.querySelector('button');
-        var tidx = 1;
+        var t_idx = 1;
         btn.addEventListener('click', function(){
             var user = 'userA';
             var session = 'sessionB';
@@ -19,10 +19,10 @@
             var trial = {
                 correct: Math.round(Math.random()) == 0,
                 rt: 100 + Math.random()*1000,
-                trial_index: tidx
+                trial_index: t_idx
             }
             saveGameplayData(user, game, session, trial);
-            tidx++;
+            t_idx++;
         });
     </script>
 </html>
