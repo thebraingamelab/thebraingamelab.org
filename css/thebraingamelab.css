@@ -3,3 +3,25 @@
 html {
     font-family: 'Overpass', sans-serif;
 }
+
+body { 
+    max-width: 720px;
+    margin: auto;
+    padding: 64px;
+}
+
+p { 
+    margin: 1em 0em;
+    padding: 0px;
+}
+
+button {
+    background-color: blue;
+    border: 0px;
+    padding: 0.3em 1.2em;
+    box-sizing: border-box;
+    color: white;
+    text-transform: uppercase;
+    
+    font-family: 'Overpass', sans-serif;
+}
