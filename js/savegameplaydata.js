@@ -1,3 +1,7 @@
+// usage:
+// user, game, and session are IDs
+// trial is an object that contains all the data for a single trial
+
 function saveGameplayData(user, game, session, trial){
   
   var payload = {

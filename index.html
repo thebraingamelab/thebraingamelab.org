@@ -1,28 +1,47 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>The Brain Game Lab</title>
-        <link rel="stylesheet" type="text/css" href="css/thebraingamelab.css">
-        <script src="js/savegameplaydata.js"></script>
-    </head>
-    <body>
-        <h1>The Brain Game Lab</h1>
-        <button>Send Test Trial Data Event</button>
-    </body>
-    <script>
-        var btn = document.querySelector('button');
-        var t_idx = 1;
-        btn.addEventListener('click', function(){
-            var user = 'userA';
-            var session = 'sessionB';
-            var game = 'gameC';
-            var trial = {
-                correct: Math.round(Math.random()) == 0,
-                rt: 100 + Math.random()*1000,
-                trial_index: t_idx
-            }
-            saveGameplayData(user, game, session, trial);
-            t_idx++;
-        });
-    </script>
+<head>
+  <title>The Brain Game Lab</title>
+  <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+  <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/thebraingamelab.css">
+  <script src="js/savegameplaydata.js"></script>
+</head>
+<body>
+  <h1>The Brain Game Lab</h1>
+  <p>
+    <em>Games are an enormously promising tool for research in cognitive science.</em> Traditional laboratory experiments are
+    boring for the participant, expensive for the researcher, and study mostly college students at major research universities. 
+    A well-designed game, on the other hand, is engaging, attracts volunteers to play, and can reach people all over the world. 
+    With millions of potential participants, researchers can ask questions that have been unanswerable with traditional laboratory methods.
+  </p>
+  <p>
+    We're designing The Brain Game Lab to be a home for game-based research in cognitive science. We're still in the early stages of work.
+    If you are a Vassar student interested in developing games for research please get in touch with Professor Josh de Leeuw (jdeleeuw@vassar.edu).
+    We're looking for students with a variety of interests and backgrounds, including graphic design, sound/music design, game design, programming, 
+    and experimental research experience.
+  </p>
+  <p>Want to get updated when we release new games? [email].</p>
+  <h2>Games</h2>
+  <p>Forgetful Frog</p>
+  <p>Tailgate</p>
+  <p>Blockmatch</p>
+  <button>Send Test Trial Data Event</button>
+</body>
+<script>
+  var btn = document.querySelector('button');
+  var t_idx = 1;
+  btn.addEventListener('click', function(){
+    var user = 'userA';
+    var session = 'sessionB';
+    var game = 'gameC';
+    var trial = {
+      correct: Math.round(Math.random()) == 0,
+      rt: 100 + Math.random()*1000,
+      trial_index: t_idx
+    }
+    saveGameplayData(user, game, session, trial);
+    t_idx++;
+  });
+</script>
 </html>
