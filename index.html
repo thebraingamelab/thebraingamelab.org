@@ -6,35 +6,37 @@
   <script src="js/savegameplaydata.js"></script>
 </head>
 <body>
-  
-  <h1>The Brain Game Lab</h1>
   <p>
+    <img src="img/logo.png" id="logo" alt="The Brain Game Lab">
     <em class='lead'>Games are an enormously promising tool for research in cognitive science.</em> Traditional laboratory experiments are
     boring for the participant, expensive for the researcher, and study mostly college students at major research universities. 
     A well-designed game, on the other hand, is engaging, attracts volunteers to play, and can reach people all over the world. 
     With millions of potential participants, research using games can tackle questions that are unanswerable with traditional laboratory methods.
   </p>
   <p>
-    We're designing The Brain Game Lab to be a home for game-based research in cognitive science. We're still in the early 
-    stages of work. If you are a Vassar student interested in developing games for research please get in touch with Professor 
+    We're designing The Brain Game Lab to be a home for game-based research in cognitive science. <em class='lead'>We're still in the early 
+    stages of work.</em> If you are a Vassar student interested in developing games for research please get in touch with Professor 
     Josh de Leeuw (<a href="mailto:jdeleeuw@vassar.edu">jdeleeuw@vassar.edu</a>). We're looking for students with a variety of 
     interests and backgrounds, including graphic design, sound/music design, game design, programming, and experimental research 
     experience.
   </p>
-  <p>
-    Get updated when we release new games:
-    <input type="text" id="email-signup" placeholder="Email Address"></input>
-    <button id="email-submit">Sign Up</button>
+  <p id="signup">
+    Get notified when we add new games:
+    <div id="signup-form">
+      <input type="text" id="email-signup" placeholder="Email Address"></input>
+      <button id="email-submit">Sign Up</button>
+    </div>
   </p>
   
+  <!--
+
   <h2>Games</h2>
   <p>Forgetful Frog</p>
-  <p>Tailgate</p>
-  <p>Blockmatch</p>
-  <button>Send Test Trial Data Event</button>
+  <p>Tailgate</p>-->
+  <!--<button>Send Test Trial Data Event</button>-->
 </body>
 <script>
-  var btn = document.querySelector('button');
+  /*var btn = document.querySelector('button');
   var t_idx = 1;
   btn.addEventListener('click', function(){
     var user = 'userA';
@@ -47,6 +49,20 @@
     }
     saveGameplayData(user, game, session, trial);
     t_idx++;
-  });
+  });*/
+
+  document.querySelector('#email-submit').addEventListener('click', function(){
+    const email = document.querySelector('#email-signup').value;
+    if(email == "") { return; }
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'https://api.thebraingamelab.org/addtomaillist');
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onload = function() {
+      if(xhr.status == 200){
+        document.querySelector('#signup-form').innerHTML = "Thanks!";
+      }
+    };
+    xhr.send(JSON.stringify({email: email}));   
+  })
 </script>
 </html>

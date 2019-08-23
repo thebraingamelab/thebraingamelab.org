@@ -13,11 +13,29 @@ body {
 p { 
     margin: 1em 0em;
     padding: 0px;
+    font-size: 18px;
+    line-height: 1.25em;
+}
+
+#logo{
+    width: 25%;
+    float: left;
+    margin-right: 1em;
+    margin-bottom: .5em;
+    margin-top: 0;
+    margin-left: 0;
 }
 
 em.lead {
     font-weight: bold;
     font-style: normal;
+}
+
+#signup, #signup-form {
+    display: inline-block;
+}
+#signup {
+    margin-right: 2em;
 }
 
 input[type="text"] {
