@@ -2,12 +2,22 @@
 <html>
 <head>
   <title>The Brain Game Lab</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-146489542-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-146489542-1');
+  </script>
   <link rel="stylesheet" type="text/css" href="css/thebraingamelab.css">
   <script src="js/savegameplaydata.js"></script>
 </head>
 <body>
-  <p>
-    <img src="img/logo.png" id="logo" alt="The Brain Game Lab">
+  <img src="img/logo.png" id="logo" alt="The Brain Game Lab">
+  <p>  
     <em class='lead'>Games are an enormously promising tool for research in cognitive science.</em> Traditional laboratory experiments are
     boring for the participant, expensive for the researcher, and study mostly college students at major research universities. 
     A well-designed game, on the other hand, is engaging, attracts volunteers to play, and can reach people all over the world. 
@@ -20,13 +30,13 @@
     interests and backgrounds, including graphic design, sound/music design, game design, programming, and experimental research 
     experience.
   </p>
-  <p id="signup">
-    Get notified when we add new games:
+  <div id="signup">
+    <span>Get notified when we add new games:</span>
     <div id="signup-form">
       <input type="text" id="email-signup" placeholder="Email Address"></input>
       <button id="email-submit">Sign Up</button>
     </div>
-  </p>
+  </div>
   
   <!--
 
@@ -59,10 +69,11 @@
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.onload = function() {
       if(xhr.status == 200){
-        document.querySelector('#signup-form').innerHTML = "Thanks!";
+        
       }
     };
-    xhr.send(JSON.stringify({email: email}));   
+    xhr.send(JSON.stringify({email: email}));
+    document.querySelector('#signup-form').innerHTML = "Thanks! Added "+email+".";
   })
 </script>
 </html>
